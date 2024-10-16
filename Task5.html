@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Canvas Drawing</title>
+</head>
+<body>
+<h1>Canvas Drawing</h1>
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid #000000;"></canvas>
+
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // Draw a rectangle with gradient fill
+    var gradient = ctx.createLinearGradient(50, 50, 150, 150);
+    gradient.addColorStop(0, "blue");
+    gradient.addColorStop(1, "green");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(50, 50, 100, 100);
+
+    // Draw a filled circle with a different color
+    ctx.beginPath();
+    ctx.arc(200, 200, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.stroke(); // Optional outline
+
+    // Draw an outlined triangle
+    ctx.beginPath();
+    ctx.moveTo(150, 250);
+    ctx.lineTo(100, 300);
+    ctx.lineTo(200, 300);
+    ctx.closePath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "purple";
+    ctx.stroke();
+</script>
+</body>
+</html>
